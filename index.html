@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Voting Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Election Voting Platform</h1>
+            <input type="text" id="searchBar" placeholder="Search for a candidate..." aria-label="Search for a candidate">
+            
+            <div class="counter-container">
+                Selected Candidates: <span id="selectedCount">0</span>/30
+            </div>
+            
+            <!-- Select All / Deselect All Buttons -->
+            <div class="selection-buttons">
+                <button id="selectAll">Select All</button>
+                <button id="deselectAll">Deselect All</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="candidates-container" id="candidatesContainer" aria-label="Candidates List">
+            <!-- Candidate cards will be injected here -->
+        </section>
+        <button id="submitVote" disabled>Submit Vote</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Election Voting Platform. All rights reserved.</p>
+    </footer>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <button class="close-button" aria-label="Close">&times;</button>
+            <h2 id="modalTitle">Confirm Your Vote</h2>
+            <p>Please enter your details before submitting your vote.</p>
+            <form id="voterForm">
+                <div class="form-group">
+                    <label for="firstName">First Name<span aria-hidden="true">*</span></label>
+                    <input type="text" id="firstName" name="firstName" required aria-required="true">
+                    <span class="error-message" id="firstNameError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name<span aria-hidden="true">*</span></label>
+                    <input type="text" id="lastName" name="lastName" required aria-required="true">
+                    <span class="error-message" id="lastNameError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email<span aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" required aria-required="true">
+                    <span class="error-message" id="emailError"></span>
+                </div>
+                <button type="submit" id="confirmVote">Confirm and Submit Vote</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+        <div class="modal-content">
+            <button class="close-button" aria-label="Close">&times;</button>
+            <h2 id="successTitle">Vote Submitted</h2>
+            <p>Thank you for submitting your vote!</p>
+            <button id="closeSuccessModal">Close</button>
+        </div>
+    </div>
+
+    <!-- Candidate Details Modal -->
+    <div id="detailsModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="detailsTitle">
+        <div class="modal-content">
+            <button class="close-button" aria-label="Close">&times;</button>
+            <h2 id="detailsTitle">Candidate Details</h2>
+            <div id="detailsContent">
+                <!-- Candidate details will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
